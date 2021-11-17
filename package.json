@@ -1,5 +1,5 @@
 {
-  "name": "react-template-2021",
+  "name": "ruby-kaur-2021",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "firebase": "^8.2.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-card-with-image": "^1.1.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
