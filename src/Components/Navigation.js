@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { signOutUser, signInUser } from '../api/auth';
 
-export default function Navigation({ user }) {
+export default function Navigation({ userobj }) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,19 +23,23 @@ export default function Navigation({ user }) {
           <Link className="navbar-brand" to="/technologies">
             Technologies
           </Link>
-          <Link className="navbar-brand" to="/create">
-            New Project Form
-          </Link>
-          {user ? (
+          {userobj?.isadmin ? (
+            <Link className="navbar-brand" to="/create">
+              {' '}
+              New Project Form{' '}
+            </Link>
+          ) : (
+            ''
+          )}
+          {userobj?.uid ? (
             <button type="button" className="nav-link" onClick={signOutUser}>
-              Logout
+              {userobj.fullName} Logout
             </button>
           ) : (
             <button type="button" className="nav-link" onClick={signInUser}>
               LogIn
             </button>
           )}
-          ;
         </div>
       </nav>
     </div>
@@ -43,9 +47,13 @@ export default function Navigation({ user }) {
 }
 
 Navigation.propTypes = {
-  user: PropTypes.node,
+  userobj: PropTypes.shape({
+    fullName: PropTypes.string,
+    uid: PropTypes.string,
+    isadmin: PropTypes.bool,
+  }),
 };
 
 Navigation.defaultProps = {
-  user: null,
+  userobj: {},
 };

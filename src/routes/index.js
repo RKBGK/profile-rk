@@ -1,21 +1,21 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import AboutMe from '../views/AboutMe';
-import ContactMe from '../views/ContactMe';
-import Projects from '../views/Projects';
-import Technologies from '../views/Technologies';
-import Home from '../views/Home';
+import PropTypes from 'prop-types';
+import AdminRoutes from './AdminRoutes';
+import UnauthenticatedRoutes from './UnauthenticatedRoutes';
 
-export default function Routes() {
+export default function Routes({ user }) {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/aboutme" component={AboutMe} />
-        <Route exact path="/contact" component={ContactMe} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/technologies" component={Technologies} />
-      </Switch>
-    </div>
+    <>
+      {user?.isAdmin && <AdminRoutes user={user} />}
+      <UnauthenticatedRoutes user={user} />
+    </>
   );
 }
+
+Routes.propTypes = {
+  user: PropTypes.shape(PropTypes.obj),
+};
+
+Routes.defaultProps = {
+  user: null,
+};

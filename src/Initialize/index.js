@@ -13,9 +13,8 @@ function Initialize() {
       if (authed) {
         const userInfoObj = {
           fullName: authed.displayName,
-          profileImage: authed.photoURL,
           uid: authed.uid,
-          user: authed.email.split('@')[0],
+          isadmin: process.env.REACT_APP_ADMIN_UID === authed.uid,
         };
         setUser(userInfoObj);
       } else if (user || user === null) {
@@ -27,7 +26,8 @@ function Initialize() {
   return (
     <div className="App">
       <>
-        <Navigation user={user} />
+        {user ? <h5>{user.fullName} </h5> : ''};
+        <Navigation userobj={user} />
         <Routes />
         {/* <SignIn user={userInfoObj} /> */}
       </>
