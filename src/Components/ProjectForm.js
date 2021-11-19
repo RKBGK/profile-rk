@@ -12,26 +12,17 @@ export default function ProjectForm({ projectObj }) {
   // set the default state to the initialState object
   const [formInput, setFormInput] = useState(initialState);
 
-  // when the component mounts, check if a firebasekey exists. If it does, set the value of formInput to the obj values
   useEffect(() => {
-    let isMounted = true;
     if (projectObj.firebaseKey) {
-      if (isMounted) {
-        setFormInput({
-          name: projectObj.name,
-          firebaseKey: projectObj.firebaseKey,
-          description: projectObj.description,
-          imageUrl: projectObj.imageUrl,
-        });
-      }
+      setFormInput({
+        name: projectObj.name,
+        firebaseKey: projectObj.firebaseKey,
+        description: projectObj.description,
+        imageUrl: projectObj.imageUrl,
+      });
     }
-    return () => {
-      isMounted = false;
-    };
-    // rerender the component if the obj value is different
   }, [projectObj]);
 
-  // On call of the resetForm function, reset the state to the initialState
   const resetForm = () => {
     setFormInput({ ...initialState });
   };
@@ -43,7 +34,6 @@ export default function ProjectForm({ projectObj }) {
     }));
   };
 
-  // Since we are using this form for both creating and updating, we need to use logic to determine which method to run. If there is a firebaseKey, we know that we are updating.
   const handleSubmit = (e) => {
     e.preventDefault();
     if (projectObj.firebaseKey) {
