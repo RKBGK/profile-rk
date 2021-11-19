@@ -47,7 +47,6 @@ export default function ProjectForm({ projectObj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (projectObj.firebaseKey) {
-      // update the todo
       updateProject(formInput).then(() => {
         resetForm();
       });
@@ -62,48 +61,57 @@ export default function ProjectForm({ projectObj }) {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="mb-3 d-flex">
-          <label htmlFor="name" className="form-label visually-hidden">
-            Name
-          </label>
-          <input
-            className="form-control form-control-lg me-1"
-            type="text"
-            id="name"
-            name="name"
-            value={formInput.name}
-            onChange={handleChange}
-            placeholder="Enter Project Name!"
-            required
-          />
-          <label htmlFor="imageURL" className="form-label visually-hidden">
-            ImageURL
-          </label>
-          <input
-            className="form-control form-control-lg me-1"
-            type="text"
-            id="imageUrl"
-            name="imageUrl"
-            value={formInput.imageUrl}
-            onChange={handleChange}
-            placeholder="Enter Image URL!"
-            required
-          />
-          <label htmlFor="description" className="form-label visually-hidden">
-            ImageURL
-          </label>
-          <input
-            className="form-control form-control-lg me-1"
-            type="text"
-            id="description"
-            name="description"
-            value={formInput.description}
-            onChange={handleChange}
-            placeholder="Enter project Description!"
-            required
-          />
-          <button className="btn btn-success" type="submit">
-            {projectObj.firebaseKey ? 'Update' : 'Submit'}
-          </button>
+          <div>
+            <label htmlFor="name" className="form-label visually-hidden">
+              Name
+            </label>
+            <input
+              className="form-control form-control-lg me-1"
+              type="text"
+              id="name"
+              name="name"
+              value={formInput.name}
+              onChange={handleChange}
+              placeholder="Enter Project Name!"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="imageURL" className="form-label visually-hidden">
+              ImageURL
+            </label>
+            <input
+              className="form-control form-control-lg me-1"
+              type="text"
+              id="imageUrl"
+              name="imageUrl"
+              value={formInput.imageUrl}
+              onChange={handleChange}
+              placeholder="Enter Image URL!"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="description" className="form-label visually-hidden">
+              Project Description
+            </label>
+            <input
+              className="form-control form-control-lg me-1"
+              type="textarea"
+              id="description"
+              name="description"
+              rows="4"
+              value={formInput.description}
+              onChange={handleChange}
+              placeholder="Enter project Description!"
+              required
+            />
+          </div>
+          <div>
+            <button className="btn btn-success" type="submit">
+              {projectObj?.firebaseKey ? 'Update' : 'Submit'}
+            </button>
+          </div>
         </div>
       </form>
     </div>
