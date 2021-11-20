@@ -23,7 +23,7 @@ export default function Navigation({ user }) {
           <Link className="navbar-brand" to="/technologies">
             Technologies
           </Link>
-          {user?.isadmin ? (
+          {user?.isAdmin ? (
             <Link className="navbar-brand" to="/create">
               {' '}
               New Project Form{' '}
@@ -50,7 +50,7 @@ Navigation.propTypes = {
   user: PropTypes.shape({
     fullName: PropTypes.string,
     uid: PropTypes.string,
-    isadmin: PropTypes.bool,
+    isAdmin: PropTypes.bool,
   }),
 };
 

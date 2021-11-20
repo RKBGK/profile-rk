@@ -14,7 +14,7 @@ function Initialize() {
         const userInfoObj = {
           fullName: authed.displayName,
           uid: authed.uid,
-          isadmin: process.env.REACT_APP_ADMIN_UID === authed.uid,
+          isAdmin: process.env.REACT_APP_ADMIN_UID === authed.uid,
         };
         setUser(userInfoObj);
       } else if (user || user === null) {

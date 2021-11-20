@@ -6,8 +6,8 @@ import ContactMe from '../views/ContactMe';
 import Projects from '../views/Projects';
 import Technologies from '../views/Technologies';
 import Home from '../views/Home';
-import AddNewProject from '../views/AddNewProject';
-import EditProject from '../views/EditProject';
+// import AddNewProject from '../views/AddNewProject';
+// import EditProject from '../views/EditProject';
 
 export default function UnauthenticatedRoutes({ user }) {
   return (
@@ -19,16 +19,6 @@ export default function UnauthenticatedRoutes({ user }) {
         exact
         path="/projects"
         component={() => <Projects user={user} />}
-      />
-      <Route
-        exact
-        path="/create"
-        component={() => <AddNewProject user={user} />}
-      />
-      <Route
-        exact
-        path="/edit/:firebaseKey"
-        component={() => <EditProject user={user} />}
       />
       <Route exact path="/technologies" component={Technologies} />
     </Switch>
