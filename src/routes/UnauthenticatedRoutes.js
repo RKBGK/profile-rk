@@ -20,16 +20,6 @@ export default function UnauthenticatedRoutes({ user }) {
         path="/projects"
         component={() => <Projects user={user} />}
       />
-      {/* <Route
-        exact
-        path="/create"
-        component={() => <AddNewProject user={user} />}
-      />
-      <Route
-        exact
-        path="/edit/:firebaseKey"
-        component={() => <EditProject user={user} />}
-      /> */}
       <Route exact path="/technologies" component={Technologies} />
     </Switch>
   );

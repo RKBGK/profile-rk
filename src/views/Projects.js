@@ -18,7 +18,6 @@ export default function Projects({ user }) {
   return (
     <>
       <h1 className="text-center">Hi its about Projects</h1>
-      <h1 className="text-center">{user.isAdmin}</h1>
       <div className="d-flex flex-wrap">
         {cards.map((card) => (
           <ProjectCard
