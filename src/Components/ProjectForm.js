@@ -8,10 +8,10 @@ const initialState = {
   description: '',
   imageUrl: '',
 };
-export default function ProjectForm({ projectObj }) {
+export default function ProjectForm({ projectObj = {} }) {
   // set the default state to the initialState object
   const [formInput, setFormInput] = useState(initialState);
-
+  console.warn(projectObj);
   useEffect(() => {
     if (projectObj.firebaseKey) {
       setFormInput({

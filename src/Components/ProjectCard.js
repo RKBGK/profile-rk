@@ -16,7 +16,7 @@ export default function ProjectCard({ card, setCards, user }) {
         <div className="card-body">
           <h5 className="card-title">{card.name}</h5>
           <p className="card-text">{card.description}</p>
-          <h5> {user?.uid ? 'hi' : 'no'}</h5>
+          <h5> {user?.uid ? user.fullName : 'no'}</h5>
           {user?.uid ? (
             <button type="button" className="nav-link">
               {user.fullName}
@@ -52,7 +52,7 @@ ProjectCard.propTypes = {
   user: PropTypes.shape({
     fullName: PropTypes.string,
     uid: PropTypes.string,
-    isadmin: PropTypes.bool,
+    isAdmin: PropTypes.bool,
   }),
   card: PropTypes.shape(PropTypes.obj).isRequired,
   setCards: PropTypes.func.isRequired,
