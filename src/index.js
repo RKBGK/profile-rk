@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.scss';
+import 'firebase/storage';
 import firebase from 'firebase';
 import firebaseConfig from './api/apiKeys';
 import Initialize from './Initialize';

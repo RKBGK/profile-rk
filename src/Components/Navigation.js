@@ -25,8 +25,14 @@ export default function Navigation({ user }) {
           </Link>
           {user?.isAdmin ? (
             <Link className="navbar-brand" to="/create">
-              {' '}
-              New Project Form{' '}
+              Add Project
+            </Link>
+          ) : (
+            ''
+          )}
+          {user?.isAdmin ? (
+            <Link className="navbar-brand" to="/uploadImg">
+              Upload
             </Link>
           ) : (
             ''

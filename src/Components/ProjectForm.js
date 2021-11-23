@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { createProject, updateProject } from '../api/data/projectData';
 
@@ -11,6 +12,7 @@ const initialState = {
 export default function ProjectForm({ projectObj = {} }) {
   // set the default state to the initialState object
   const [formInput, setFormInput] = useState(initialState);
+  const history = useHistory();
   console.warn(projectObj);
   useEffect(() => {
     if (projectObj.firebaseKey) {
@@ -39,10 +41,12 @@ export default function ProjectForm({ projectObj = {} }) {
     if (projectObj.firebaseKey) {
       updateProject(formInput).then(() => {
         resetForm();
+        history.push('/projects');
       });
     } else {
       createProject({ ...formInput }).then(() => {
         resetForm();
+        history.push('/projects');
       });
     }
   };
