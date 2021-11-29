@@ -8,6 +8,7 @@ import firebaseConfig from './api/apiKeys';
 import Initialize from './Initialize';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css';
 
 firebase.initializeApp(firebaseConfig);
 

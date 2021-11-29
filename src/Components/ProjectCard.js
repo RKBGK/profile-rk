@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 import { deleteProject } from '../api/data/projectData';
 
 export default function ProjectCard({ card, setCards, user }) {
@@ -11,19 +12,31 @@ export default function ProjectCard({ card, setCards, user }) {
   };
 
   return (
-    <div>
-      <div className="card" style={{ width: '18rem', margin: '3px' }}>
-        <div className="card-body">
-          <h5 className="card-title">{card.name}</h5>
-          <p className="card-text">{card.description}</p>
-          <h5> {user?.uid ? user.fullName : 'no'}</h5>
-          {user?.uid ? (
+    <div
+      className="card container-fluid d-flex justify-content-center"
+      style={{ width: '15rem', margin: '1px' }}
+    >
+      <Card>
+        <div className="card-body text-dark">
+          <div className="overflow">
+            <Card.Img
+              src={card.imageUrl}
+              alt={card.name}
+              style={{ width: '10rem', margin: '3px', padding: '2%' }}
+            />
+            <Card.Body>
+              <Card.Title>{card.name}</Card.Title>
+              <Card.Text>{card.description}</Card.Text>
+            </Card.Body>
+          </div>
+          {/* <h5> {user?.uid ? user.fullName : 'no'}</h5> */}
+          {/* {user?.uid ? (
             <button type="button" className="nav-link">
               {user.fullName}
             </button>
           ) : (
             ''
-          )}
+          )} */}
           {user?.uid ? (
             <Link to={`/edit/${card.firebaseKey}`} className="btn btn-warning">
               Edit
@@ -43,7 +56,7 @@ export default function ProjectCard({ card, setCards, user }) {
             ''
           )}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

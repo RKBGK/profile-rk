@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { signOutUser, signInUser } from '../api/auth';
@@ -42,8 +43,14 @@ export default function Navigation({ user }) {
               {user.fullName} Logout
             </button>
           ) : (
-            <button type="button" className="nav-link" onClick={signInUser}>
-              LogIn
+            <button
+              type="button"
+              className="nav-link active btn btn-link"
+              onClick={signInUser}
+              border="none"
+            >
+              <Icon name="setting" />
+              {/* LogIn */}
             </button>
           )}
         </div>
