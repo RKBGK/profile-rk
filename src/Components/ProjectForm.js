@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Form, Row } from 'react-bootstrap';
 import { createProject, updateProject } from '../api/data/projectData';
 
 // Create an initial state object so that it can be reused in the component
@@ -55,52 +54,58 @@ export default function ProjectForm({ projectObj = {} }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Row className="mb-3 d-flex" width="75%">
-          <Form.Group>
-            <Form.Label htmlFor="name">Name</Form.Label>
-            <Form.Control
+        <div className="mb-3 d-flex">
+          <div>
+            <label htmlFor="name" className="form-label visually-hidden">
+              Name
+            </label>
+            <input
+              className="form-control form-control-lg me-1"
+              type="text"
               id="name"
               name="name"
-              type="text"
-              placeholder="Enter Project Name"
-              onChange={handleChange}
               value={formInput.name}
-              style={{ width: '75%' }}
+              onChange={handleChange}
+              placeholder="Enter Project Name!"
+              required
             />
-          </Form.Group>
-        </Row>
-        <Row className="mb-3 d-flex" width="75%">
-          <Form.Group>
-            <Form.Label htmlFor="imageURL">ImageURL</Form.Label>
-            <Form.Control
+          </div>
+          <div>
+            <label htmlFor="imageURL" className="form-label visually-hidden">
+              ImageURL
+            </label>
+            <input
+              className="form-control form-control-lg me-1"
+              type="text"
               id="imageUrl"
               name="imageUrl"
-              type="text"
-              placeholder="Enter Project URL"
-              onChange={handleChange}
               value={formInput.imageUrl}
-              style={{ width: '75%' }}
+              onChange={handleChange}
+              placeholder="Enter Image URL!"
+              required
             />
-          </Form.Group>
-        </Row>
-        <Row className="mb-3 d-flex" width="75%">
-          <Form.Group>
-            <Form.Label htmlFor="description">Description</Form.Label>
-            <Form.Control
+          </div>
+          <div>
+            <label htmlFor="description" className="form-label visually-hidden">
+              Project Description
+            </label>
+            <input
+              className="form-control form-control-lg me-1"
+              type="textarea"
               id="description"
               name="description"
-              type="text"
-              placeholder="Enter project Description"
-              onChange={handleChange}
+              rows="4"
               value={formInput.description}
-              style={{ width: '75%' }}
+              onChange={handleChange}
+              placeholder="Enter project Description!"
+              required
             />
-          </Form.Group>
-        </Row>
-        <div className="mb-3 d-flex">
-          <button className="btn btn-success" type="submit">
-            {projectObj?.firebaseKey ? 'Update' : 'Submit'}
-          </button>
+          </div>
+          <div>
+            <button className="btn btn-success" type="submit">
+              {projectObj?.firebaseKey ? 'Update' : 'Submit'}
+            </button>
+          </div>
         </div>
       </form>
     </div>
