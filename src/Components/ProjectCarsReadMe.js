@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { deleteProject } from '../api/data/projectData';
 import '../styles/ProjectStyle.css';
-// import Modal from './Modal';
 
 export default function ProjectCard({ card, setCards, user }) {
   const handleClick = (method) => {
