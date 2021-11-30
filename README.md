@@ -1,4 +1,3 @@
-Deployed link https://rkprofile-e16.netlify.app/
 # React Template
 [![Netlify Status](https://api.netlify.com/api/v1/badges/339c4ae9-fc7f-41b4-9b49-2dab0a20eaba/deploy-status)](https://app.netlify.com/sites/react-template-21/deploys)
 
@@ -12,7 +11,7 @@ This template includes all the dependencies and set up needed for you to work wi
 - [Other important tidbits](#other-important-tidbits)
     - [React Dev Tools](#react-dev-tools)
     - [Using axios](#using-axios)
-    - [Deploying on Netlify](#deploying-on-netlify)
+    - [Deploying on Netlify](#deploying-on-netlify) - https://rkprofile-e16.netlify.app/
 ___
 
 ## Get Started
