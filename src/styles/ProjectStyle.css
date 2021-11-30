@@ -1,0 +1,29 @@
+.body {
+    background-color: #cccccc;
+  }
+
+  .card.hover {
+    box-shadow: 5px 10ox 20px 1px rgba(red, green, blue, alpha) !important;
+  }
+  
+  .card.body {
+    padding: 3rem 0 !important;
+  }
+
+  .card.text {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.9re;
+  }
+
+  .overflow {
+    overflow: hidden;
+  }
+
+  .card-image-top{
+    transform: scale(1);
+    transition: transform 0.5s ease;
+  }
+
+  .card-image-top:hover{
+    transform: scale(1.8);
+  }
