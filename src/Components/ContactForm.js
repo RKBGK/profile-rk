@@ -1,4 +1,4 @@
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import React, { useState } from 'react';
 import createContact from '../api/data/contactdata';
 
@@ -25,29 +25,35 @@ export default function ContactForm() {
     setFormInput(initialState);
   };
 
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs.sendForm('gmail', 'template_b0dw6k8', e.target, 'user_VKlQBD3AKIqIGsx33rcs6')
-  //     .then((result) => {
-  //       console.warn(result.text);
-  //     }, (error) => {
-  //       console.warn(error.text);
-  //     });
-  //   e.target.reset();
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     createContact({ ...formInput }).then(resetForm);
     setShowForm(false);
-    // sendEmail();
+  };
+
+  const sendEmail = (e) => {
+    emailjs
+      .sendForm(
+        'service_emqs4bs',
+        'template_b0dw6k8',
+        e.target,
+        'user_VKlQBD3AKIqIGsx33rcs6',
+      )
+      .then(
+        (result) => {
+          console.warn(result.text);
+        },
+        (error) => {
+          console.warn(error.text);
+        },
+      );
+    handleSubmit(e);
   };
 
   return (
     <div>
       {showForm ? (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={sendEmail}>
           <div className="m-3">
             <label htmlFor="name" className="form-label visually-hidden">
               Name
